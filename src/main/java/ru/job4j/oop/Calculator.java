@@ -27,16 +27,14 @@ public class Calculator {
     public static void main(String[] args) {
         int result = Calculator.sum(10);
         int resDif = Calculator.minus(12);
-        Calculator multiplied = new Calculator();
-        int multipliedResult = multiplied.multiply(15);
-        Calculator divided = new Calculator();
-        int dividedResult = divided.divide(22);
-        Calculator operationSum = new Calculator();
-        int operationsResult = operationSum.sumAllOperation(10);
+        Calculator calculator = new Calculator();
+        int multiple = calculator.multiply(15);
+        int div = calculator.divide(22);
+        int operations = calculator.sumAllOperation(10);
         System.out.println(result);
         System.out.println(resDif);
-        System.out.println(multipliedResult);
-        System.out.println(dividedResult);
-        System.out.println(operationsResult);
+        System.out.println(multiple);
+        System.out.println(div);
+        System.out.println(operations);
     }
 }
