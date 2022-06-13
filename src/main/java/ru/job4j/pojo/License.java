@@ -12,7 +12,6 @@ public class License {
 
     private Date created;
 
-
     public String getOwner() {
         return owner;
     }
