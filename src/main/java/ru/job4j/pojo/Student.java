@@ -10,7 +10,6 @@ public class Student {
 
     private Date admissionDate;
 
-
     public String getSurname() {
         return surname;
     }
