@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class Student {
 
-    private String surname;
-
     private String group;
+
+    private String surname;
 
     private Date admissionDate;
 
