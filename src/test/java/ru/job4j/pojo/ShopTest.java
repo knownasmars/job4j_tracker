@@ -27,7 +27,7 @@ public class ShopTest {
     @Test
     public void whenHasNotNull() {
         Product[] products = new Product[1];
-        products[0] = new Product("Milk", 10);
+        products[0] = new Product("Milky", 10);
         int rsl = Shop.indexOfNull(products);
         assertThat(rsl, is(-1));
     }
