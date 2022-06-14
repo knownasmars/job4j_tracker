@@ -6,9 +6,9 @@ public class Item {
 
     private int id;
 
-    private LocalDateTime created = LocalDateTime.now();
-
     private String name;
+
+    private LocalDateTime created = LocalDateTime.now();
 
     public Item() {
     }
@@ -38,7 +38,7 @@ public class Item {
         this.name = name;
     }
 
-    public LocalDateTime getDateTime() {
+    public LocalDateTime getCreated() {
         return created;
     }
 }
