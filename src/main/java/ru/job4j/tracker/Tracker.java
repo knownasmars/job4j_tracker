@@ -17,32 +17,21 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] itemsCopy = new Item[items.length];
-        int size = 0;
-        for (int index = 0; index < items.length; index++) {
-            Item name = items[index];
-            if (name != null) {
-                itemsCopy[size] = name;
-                size++;
-            }
-        }
-        itemsCopy = Arrays.copyOf(itemsCopy, size);
-        return itemsCopy;
+        return Arrays.copyOf(items, size);
     }
 
     public Item[] findByName(String key) {
-        Item[] items = findAll();
-        Item[] itemsCopy = new Item[items.length];
-        int size = 0;
-        for (int i = 0; i < items.length; i++) {
+        Item[] rsl = new Item[size];
+        int count = 0;
+        for (int i = 0; i < size; i++) {
             Item item = items[i];
             if (key.equals(item.getName())) {
-                itemsCopy[size] = items[i];
-                size++;
+                rsl[count] = items[i];
+                count++;
             }
         }
-        itemsCopy = Arrays.copyOf(itemsCopy, size);
-        return itemsCopy;
+        rsl = Arrays.copyOf(rsl, count);
+        return rsl;
     }
 
     public Item findById(int id) {
