@@ -13,7 +13,6 @@ public class Item {
 
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
 
-
     public Item() {
     }
 
@@ -48,10 +47,9 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", created=" + created.format(FORMATTER) +
-                '}';
+        return "Item{" + "id=" + id
+                + ", name='" + name + '\''
+                + ", created="
+                + created.format(FORMATTER) + '}';
     }
 }
