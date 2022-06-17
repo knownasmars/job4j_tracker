@@ -5,7 +5,5 @@ public class College {
         Freshman freshman = new Freshman();
         Student student = freshman;
         Object obj = freshman;
-        Object ofresh = new Freshman();
-        Student fromObj = (Student) ofresh;
     }
 }
