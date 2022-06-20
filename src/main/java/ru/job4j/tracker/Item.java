@@ -11,7 +11,7 @@ public class Item {
 
     private LocalDateTime created = LocalDateTime.now();
 
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy");
 
     public Item() {
     }

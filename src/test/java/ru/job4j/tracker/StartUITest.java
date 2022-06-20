@@ -111,4 +111,85 @@ public class StartUITest {
                         + "=== Exit the program ===" + ln
         ));
     }
+
+    @Test
+    public void whenShowActionTestOutputIsSuccessfully() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        tracker.add(new Item("test1"));
+        Input in = new StubInput(
+                new String[] {"0", "1"}
+        );
+        UserAction[] actions = new UserAction[]{
+                new ShowAction(out),
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu:" + ln
+                        + "0. Show all Items" + ln
+                        + "1. Exit the program" + ln
+                        + "=== Show all Items ===" + ln
+                        + "Item{id=1, name='test1', created=20-июня-понедельник-2022}" + ln
+                        + "Menu:" + ln
+                        + "0. Show all Items" + ln
+                        + "1. Exit the program" + ln
+                        + "=== Exit the program ===" + ln
+        ));
+    }
+
+    @Test
+    public void whenFindByIdActionTestOutputIsSuccessfully() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test1"));
+        Input in = new StubInput(
+                new String[] {"0", String.valueOf(one.getId()), "1"}
+        );
+        UserAction[] actions = new UserAction[]{
+                new FindByIdAction(out),
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu:" + ln
+                        + "0. Find Item by id" + ln
+                        + "1. Exit the program" + ln
+                        + "=== Find Item by id ===" + ln
+                        + "Item{id=1, name='test1', created=20-июня-понедельник-2022}" + ln
+                        + "Menu:" + ln
+                        + "0. Find Item by id" + ln
+                        + "1. Exit the program" + ln
+                        + "=== Exit the program ===" + ln
+        ));
+    }
+
+    @Test
+    public void whenFindByNameActionTestOutputIsSuccessfully() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test1"));
+        Input in = new StubInput(
+                new String[] {"0", one.getName(), "1"}
+        );
+        UserAction[] actions = new UserAction[]{
+                new FindByNameAction(out),
+                new ExitAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu:" + ln
+                        + "0. Find Item by name" + ln
+                        + "1. Exit the program" + ln
+                        + "=== Find Item by name ===" + ln
+                        + "Item{id=1, name='test1', created=20-июня-понедельник-2022}" + ln
+                        + "Menu:" + ln
+                        + "0. Find Item by name" + ln
+                        + "1. Exit the program" + ln
+                        + "=== Exit the program ===" + ln
+        ));
+    }
 }
