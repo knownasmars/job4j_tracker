@@ -116,7 +116,7 @@ public class StartUITest {
     public void whenShowActionTestOutputIsSuccessfully() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        tracker.add(new Item("test1"));
+        Item item = tracker.add(new Item("test1"));
         Input in = new StubInput(
                 new String[] {"0", "1"}
         );
@@ -131,7 +131,7 @@ public class StartUITest {
                         + "0. Show all Items" + ln
                         + "1. Exit the program" + ln
                         + "=== Show all Items ===" + ln
-                        + "Item{id=1, name='test1', created=20-июня-понедельник-2022}" + ln
+                        + item + ln
                         + "Menu:" + ln
                         + "0. Show all Items" + ln
                         + "1. Exit the program" + ln
@@ -158,7 +158,7 @@ public class StartUITest {
                         + "0. Find Item by id" + ln
                         + "1. Exit the program" + ln
                         + "=== Find Item by id ===" + ln
-                        + "Item{id=1, name='test1', created=20-июня-понедельник-2022}" + ln
+                        + one + ln
                         + "Menu:" + ln
                         + "0. Find Item by id" + ln
                         + "1. Exit the program" + ln
@@ -185,7 +185,7 @@ public class StartUITest {
                         + "0. Find Item by name" + ln
                         + "1. Exit the program" + ln
                         + "=== Find Item by name ===" + ln
-                        + "Item{id=1, name='test1', created=20-июня-понедельник-2022}" + ln
+                        + one + ln
                         + "Menu:" + ln
                         + "0. Find Item by name" + ln
                         + "1. Exit the program" + ln
