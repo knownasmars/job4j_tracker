@@ -32,13 +32,13 @@ public class StartUI {
     }
 
     public static void main(String[] args) {
-        Output out = new ConsoleOutput();
-        Input input = new ValidateInput(out, new ConsoleInput());
+        Output output = new ConsoleOutput();
+        Input input = new ValidateInput(output, new ConsoleInput());
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(out),
-                new ExitAction(out)
+                new CreateAction(output),
+                new ExitAction(output)
         };
-        new StartUI(out).init(input, tracker, actions);
+        new StartUI(output).init(input, tracker, actions);
     }
 }
