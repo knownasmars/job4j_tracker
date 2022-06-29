@@ -32,14 +32,16 @@ public class ValidateInputTest {
     public void whenMultipleValidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "1", "0", "1", "1"}
+                new String[] {"0", "1", "0", "2", "1"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int[] data = new int[5];
-        for (int i = 0; i < data.length; i++) {
-            data[i] = input.askInt("Enter menu:");
-        }
-        assertArrayEquals(data, new int[]{0, 1, 0, 1, 1});
+        data[0] = input.askInt("Enter menu:");
+        data[1] = input.askInt("Enter menu:");
+        data[2] = input.askInt("Enter menu:");
+        data[3] = input.askInt("Enter menu:");
+        data[4] = input.askInt("Enter menu:");
+        assertArrayEquals(data, new int[]{0, 1, 0, 2, 1});
     }
 
     @Test
