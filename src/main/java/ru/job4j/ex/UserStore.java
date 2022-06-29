@@ -5,14 +5,13 @@ public class UserStore {
     public static User findUser(User[] users, String login) throws UserNotFoundException {
         User user = null;
         for (User u : users) {
-            if (u != null) {
-                if (u.getUsername().equals(login)) {
-                    user = u;
-                    break;
-                } else {
-                    throw new UserNotFoundException("User is not found in specified array");
-                }
+            if (u.getUsername().equals(login)) {
+                user = u;
+                break;
             }
+        }
+        if (user == null) {
+            throw new UserNotFoundException("User is not found in specified array");
         }
         return user;
     }
