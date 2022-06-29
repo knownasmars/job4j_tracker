@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public final class SingleTracker {
 
-    private static SingleTracker instance = null;
+    private static SingleTracker instance;
 
     private SingleTracker() {
     }
