@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class PhoneDictionaryTest {
-
     @Test
     public void whenFindByName() {
         PhoneDictionary phones = new PhoneDictionary();
@@ -23,6 +22,6 @@ public class PhoneDictionaryTest {
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
         ArrayList<Person> persons = phones.find("Bob");
-        assertThat(persons.size() == 0);
+        assertThat(persons.size()).isEqualTo(0);
     }
 }
