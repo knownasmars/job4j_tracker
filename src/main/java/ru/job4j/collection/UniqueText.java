@@ -11,10 +11,10 @@ public class UniqueText {
         for (String s : origin) {
             check.add(s);
         }
-        int copyCount = 1;
         for (String s : text) {
             if (!check.contains(s)) {
                 rsl = false;
+                break;
             }
         }
         return rsl;
