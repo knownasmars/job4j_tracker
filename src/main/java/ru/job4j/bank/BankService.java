@@ -17,8 +17,9 @@ public class BankService {
         if (user == null) {
             throw new IllegalArgumentException("Specified user is absent.");
         }
-        if (users.get(user) != null && !users.get(user).contains(account)) {
-            users.get(user).add(account);
+        List<Account> list = users.get(user);
+        if (!list.contains(account)) {
+            list.add(account);
         }
     }
 
@@ -32,8 +33,9 @@ public class BankService {
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        if (findByPassport(passport) != null) {
-            for (Account a : users.get(findByPassport(passport))) {
+        User finding = findByPassport(passport);
+        if (finding != null) {
+            for (Account a : users.get(finding)) {
                 if (a.getRequisite().equals(requisite)) {
                     return a;
                 }
