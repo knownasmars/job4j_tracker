@@ -12,17 +12,17 @@ public class ItemSorterByNameTest {
     public void whenSortedAscByName() {
         List<Item> items = new ArrayList<>(
                 List.of(
-                        new Item(1,"Mars"),
-                        new Item(2,"Andrey"),
-                        new Item(3,"Artem")
+                        new Item(1, "Mars"),
+                        new Item(2, "Andrey"),
+                        new Item(3, "Artem")
                 )
         );
         Collections.sort(items, new ItemAscByName());
         List<Item> expected = new ArrayList<>(
                 List.of(
-                        new Item(2,"Andrey"),
-                        new Item(3,"Artem"),
-                        new Item(1,"Mars")
+                        new Item(2, "Andrey"),
+                        new Item(3, "Artem"),
+                        new Item(1, "Mars")
                 )
         );
         assertThat(items).isEqualTo(expected);

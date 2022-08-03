@@ -7,8 +7,8 @@ import java.util.List;
 public class ItemSorter {
     public static void main(String[] args) {
         List<Item> items = Arrays.asList(
-                new Item(3,"Z"),
-                new Item(1,"B"),
+                new Item(3, "Z"),
+                new Item(1, "B"),
                 new Item(2, "C"),
                 new Item(4, "A")
         );
