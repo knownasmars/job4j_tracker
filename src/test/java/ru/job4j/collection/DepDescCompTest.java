@@ -39,9 +39,4 @@ public class DepDescCompTest {
         );
         assertThat(rsl).isGreaterThan(0);
     }
-
-    @Test
-    public void whenMyOwnTesting() {
-
-    }
 }
