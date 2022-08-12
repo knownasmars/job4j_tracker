@@ -30,8 +30,11 @@ public class Departments {
 
     public static void main(String[] args) {
         List<String> input = Arrays.asList(
-                "K1/SK1/SSK2",
-                "K1/SK1/SSK1"
+                "K1/SK1/SSK1",
+                "K1/SK2",
+                "K1",
+                "K2/SK1",
+                "K2"
         );
         sortDesc(input);
         for (String s : input) {
