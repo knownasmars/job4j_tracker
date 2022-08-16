@@ -8,7 +8,7 @@ public class AnalyzeByMap {
         for (Pupil pupil : pupils) {
             double sum = 0D;
             for (Subject subject : pupil.subjects()) {
-                sum = sum + subject.score();
+                sum = sum + subject.getScore();
             }
             avg += sum;
         }
@@ -21,7 +21,7 @@ public class AnalyzeByMap {
         for (Pupil pupil : pupils) {
             double sum = 0;
             for (Subject subject : pupil.subjects()) {
-                sum = sum + subject.score();
+                sum = sum + subject.getScore();
             }
             double avg = sum / pupil.subjects().size();
             scoreList.add(new Label(pupil.name(), avg));
@@ -34,8 +34,8 @@ public class AnalyzeByMap {
         Map<String, Integer> map = new LinkedHashMap<>();
         for (Pupil p : pupils) {
             for (Subject s : p.subjects()) {
-                map.putIfAbsent(s.name(), 0);
-                map.put(s.name(), map.get(s.name()) + s.score());
+                map.putIfAbsent(s.getName(), 0);
+                map.put(s.getName(), map.get(s.getName()) + s.getScore());
             }
         }
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
@@ -49,7 +49,7 @@ public class AnalyzeByMap {
         for (Pupil pupil : pupils) {
             double sum = 0;
             for (Subject subject : pupil.subjects()) {
-                sum = sum + subject.score();
+                sum = sum + subject.getScore();
             }
             scoreList.add(new Label(pupil.name(), sum));
         }
@@ -62,8 +62,8 @@ public class AnalyzeByMap {
         Map<String, Integer> map = new LinkedHashMap<>();
         for (Pupil p : pupils) {
             for (Subject s : p.subjects()) {
-                map.putIfAbsent(s.name(), 0);
-                map.put(s.name(), map.get(s.name()) + s.score());
+                map.putIfAbsent(s.getName(), 0);
+                map.put(s.getName(), map.get(s.getName()) + s.getScore());
             }
         }
         for (Map.Entry<String, Integer> entry : map.entrySet()) {

@@ -35,7 +35,7 @@ public class BankService {
      * есть ли у него счет, переданный в параметрах. Если пользователь
      * существует, а счет отсутствует, то счет добавляется.
      * @param passport паспортные данные.
-     * @param account счет пользователя.
+     * @param account счет пользователя.k
      */
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
@@ -76,11 +76,11 @@ public class BankService {
     public Account findByRequisite(String passport, String requisite) {
         User finding = findByPassport(passport);
         if (finding != null) {
-            for (Account a : users.get(finding)) {
-                if (a.getRequisite().equals(requisite)) {
-                    return a;
-                }
-            }
+            return users.get(finding)
+                    .stream()
+                    .filter(a -> a.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
         return null;
     }
