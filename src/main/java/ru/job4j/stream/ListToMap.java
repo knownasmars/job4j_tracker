@@ -1,6 +1,5 @@
 package ru.job4j.stream;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -11,7 +10,7 @@ public class ListToMap {
                 .collect(Collectors.toMap(
                         Student::getSurname,
                         e -> e,
-                        (existing, replacement) -> existing
+                        (ex, rep) -> ex
                         )
                 );
     }
