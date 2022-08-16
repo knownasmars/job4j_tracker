@@ -9,12 +9,9 @@ public class ScopeInside {
         for (int num : number) {
             int tmp = total;
             total = add(
-                    () -> {
-                        return tmp + num;
-                    }
+                    () -> tmp + num
             );
         }
-
         System.out.println(total);
     }
 
