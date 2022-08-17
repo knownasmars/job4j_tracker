@@ -58,7 +58,7 @@ public class BankService {
     public User findByPassport(String passport) {
         users.keySet()
                 .stream()
-                .filter(u -> u.getPassport().equals(passport))
+                .filter(user -> user.getPassport().equals(passport))
                 .findFirst()
                 .orElse(null);
         return null;
