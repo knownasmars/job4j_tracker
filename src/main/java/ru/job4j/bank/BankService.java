@@ -56,12 +56,11 @@ public class BankService {
      * Если пользователь не существует, метод возвращает null.
      */
     public User findByPassport(String passport) {
-        users.keySet()
+        return users.keySet()
                 .stream()
                 .filter(user -> user.getPassport().equals(passport))
                 .findFirst()
                 .orElse(null);
-        return null;
     }
 
     /**
