@@ -8,13 +8,13 @@ public class PasswordValidator {
         return "Password is Valid";
     }
 
-    public static void lengthVal (String password) {
+    public static void lengthVal(String password) {
         if (password.length() < 8 || password.length() > 32) {
             throw new IllegalArgumentException("Password's length is out of range");
         }
     }
 
-    public static void substringVal (String password) {
+    public static void substringVal(String password) {
         if (password.equals("12345") || password.equals("qwerty")
                 || password.equals("password") || password.equals("admin")
                 || password.equals("user")) {
@@ -22,7 +22,7 @@ public class PasswordValidator {
         }
     }
 
-    public static void digitVal (String password) {
+    public static void digitVal(String password) {
         int digits = 0;
         for (int i = 0; i < password.length(); i++) {
             if (Character.isDigit(password.charAt(i))) {
@@ -34,7 +34,7 @@ public class PasswordValidator {
         }
     }
 
-    public static void symbolVal (String password) {
+    public static void symbolVal(String password) {
         int symbols = 0;
         for (int i = 0; i < password.length(); i++) {
             if (!Character.isLetterOrDigit(password.charAt(i))) {
@@ -46,7 +46,7 @@ public class PasswordValidator {
         }
     }
 
-    public static void upperLowerVal (String password) {
+    public static void upperLowerVal(String password) {
         if (password.equals(password.toUpperCase()) || password.equals(password.toLowerCase())) {
             throw new IllegalArgumentException("Please don't choose only UpperCase or LowerCase");
         }
