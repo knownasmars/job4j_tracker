@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PriorityQueueTest {
     @Test
-    public void whenHigherPrioritySecond() {
+    public void whenHigherPriorityIsSecond() {
         PriorityQueue queue = new PriorityQueue();
         queue.put(new Task("low", 5));
         queue.put(new Task("urgent", 1));
