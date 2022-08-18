@@ -22,7 +22,7 @@ public class PasswordValidatorTest {
     public void whenPasswordHasWrongLength() {
         IllegalArgumentException thrown = Assertions.assertThrows(
                 IllegalArgumentException.class, () -> {
-                    lengthVal("123222222");
+                    lengthVal("123");
                 });
         Assertions.assertEquals(
                 "Password's length is out of range",
