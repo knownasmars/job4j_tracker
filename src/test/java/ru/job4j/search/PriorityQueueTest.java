@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PriorityQueueTest {
     @Test
-    public void whenHigherPriorityIsSecond() {
+    public void whenTheHigherPriorityIsSecond() {
         var queue = new PriorityQueue();
         queue.put(new Task("low", 5));
         queue.put(new Task("urgent", 1));
@@ -15,7 +15,7 @@ public class PriorityQueueTest {
     }
 
     @Test
-    public void whenHigherPriorityEquals() {
+    public void whenTheHigherPriorityEquals() {
         var queue = new PriorityQueue();
         queue.put(new Task("low", 5));
         queue.put(new Task("urgent", 5));
