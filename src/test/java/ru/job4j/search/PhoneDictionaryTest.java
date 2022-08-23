@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PhoneDictionaryTest {
     @Test
     public void whenFindingByName() {
-        var phones = new PhoneDictionary();
+        PhoneDictionary phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
@@ -17,7 +17,7 @@ public class PhoneDictionaryTest {
 
     @Test
     public void whenNothingFound() {
-        var phones = new PhoneDictionary();
+        PhoneDictionary phones = new PhoneDictionary();
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
