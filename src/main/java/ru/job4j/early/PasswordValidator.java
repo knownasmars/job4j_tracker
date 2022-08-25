@@ -23,27 +23,23 @@ public class PasswordValidator {
     }
 
     public static void digitVal(String password) {
-        int digits = 0;
-        for (int i = 0; i < password.length(); i++) {
-            if (Character.isDigit(password.charAt(i))) {
-                digits++;
+        for (Character c : password.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                continue;
             }
+            return;
         }
-        if (digits < 1) {
-            throw new IllegalArgumentException("No digits in password. Try again please");
-        }
+        throw new IllegalArgumentException("No digits in password. Try again please");
     }
 
     public static void symbolVal(String password) {
-        int symbols = 0;
-        for (int i = 0; i < password.length(); i++) {
-            if (!Character.isLetterOrDigit(password.charAt(i))) {
-                symbols++;
+        for (Character c : password.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                continue;
             }
+            return;
         }
-        if (symbols < 1) {
-            throw new IllegalArgumentException("No symbols in password. Try again please");
-        }
+        throw new IllegalArgumentException("No symbols in password. Try again please");
     }
 
     public static void upperLowerVal(String password) {
