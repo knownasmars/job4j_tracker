@@ -24,20 +24,18 @@ public class PasswordValidator {
 
     public static void digitVal(String password) {
         for (Character c : password.toCharArray()) {
-            if (!Character.isDigit(c)) {
-                continue;
+            if (Character.isDigit(c)) {
+                return;
             }
-            return;
         }
         throw new IllegalArgumentException("No digits in password. Try again please");
     }
 
     public static void symbolVal(String password) {
         for (Character c : password.toCharArray()) {
-            if (Character.isLetterOrDigit(c)) {
-                continue;
+            if (!Character.isLetterOrDigit(c)) {
+                return;
             }
-            return;
         }
         throw new IllegalArgumentException("No symbols in password. Try again please");
     }
