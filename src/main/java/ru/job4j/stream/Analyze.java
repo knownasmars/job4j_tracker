@@ -59,7 +59,6 @@ public class Analyze {
                 .collect(
                         Collectors.groupingBy(
                                 Subject::name,
-                                LinkedHashMap::new,
                                 Collectors.summingDouble(
                                         Subject::score
                                 )
