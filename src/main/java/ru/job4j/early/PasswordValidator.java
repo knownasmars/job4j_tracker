@@ -23,21 +23,29 @@ public class PasswordValidator {
     }
 
     public static void digitVal(String password) {
+        boolean rsl = false;
         for (Character c : password.toCharArray()) {
             if (Character.isDigit(c)) {
-                return;
+                rsl = true;
+                break;
             }
         }
-        throw new IllegalArgumentException("No digits in password. Try again please");
+        if (!rsl) {
+            throw new IllegalArgumentException("No digits in password. Try again please");
+        }
     }
 
     public static void symbolVal(String password) {
+        boolean rsl = false;
         for (Character c : password.toCharArray()) {
             if (!Character.isLetterOrDigit(c)) {
-                return;
+                rsl = true;
+                break;
             }
         }
-        throw new IllegalArgumentException("No symbols in password. Try again please");
+        if (!rsl) {
+            throw new IllegalArgumentException("No symbols in password. Try again please");
+        }
     }
 
     public static void upperLowerVal(String password) {
