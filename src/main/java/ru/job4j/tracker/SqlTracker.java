@@ -67,7 +67,7 @@ public class SqlTracker implements Store {
             ps.setInt(3, id);
             ps.execute();
             int updateCount = ps.getUpdateCount();
-            if (updateCount> 0) {
+            if (updateCount > 0) {
                 rsl = true;
             }
         } catch (SQLException e) {
@@ -84,7 +84,7 @@ public class SqlTracker implements Store {
             ps.setInt(1, id);
             ps.execute();
             int updateCount = ps.getUpdateCount();
-            if (updateCount> 0) {
+            if (updateCount > 0) {
                 rsl = true;
             }
         } catch (SQLException e) {
