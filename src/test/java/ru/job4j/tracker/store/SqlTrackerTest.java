@@ -64,32 +64,48 @@ public class SqlTrackerTest {
     public void whenFindItemByName() {
         SqlTracker tracker = new SqlTracker(connection);
         List<Item> items = new ArrayList<>();
-        items.add(tracker.add(new Item("item01")));
-        items.add(tracker.add(new Item("item02")));
-        items.add(tracker.add(new Item("item03")));
-        items.add(tracker.add(new Item("item01")));
-        assertThat(tracker.findByName("item01")).hasSize(2);
+        Item item1 = tracker.add(new Item("item01"));
+        Item item2 = tracker.add(new Item("item01"));
+        Item item3 = tracker.add(new Item("item03"));
+        Item item4 = tracker.add(new Item("item04"));
+        items.add(item1);
+        items.add(item2);
+        assertThat(tracker.findByName("item01")).isEqualTo(
+                List.of(item1, item2));
     }
 
     @Test
     public void whenFindAll() {
         SqlTracker tracker = new SqlTracker(connection);
         List<Item> items = new ArrayList<>();
-        items.add(tracker.add(new Item("item01")));
-        items.add(tracker.add(new Item("item02")));
-        items.add(tracker.add(new Item("item03")));
-        items.add(tracker.add(new Item("item04")));
-        assertThat(tracker.findAll()).hasSize(4);
+        Item item1 = tracker.add(new Item("item01"));
+        Item item2 = tracker.add(new Item("item02"));
+        Item item3 = tracker.add(new Item("item03"));
+        Item item4 = tracker.add(new Item("item04"));
+        items.add(item1);
+        items.add(item2);
+        items.add(item3);
+        items.add(item4);
+        assertThat(tracker.findAll()).isEqualTo(
+                        List.of(item1, item2, item3, item4));
     }
 
     @Test
     public void whenAddAndDeleteThenTrue() {
         SqlTracker tracker = new SqlTracker(connection);
         Item firstItem = new Item("item01");
-        Item secondItem = new Item("item02");
         assertThat(tracker.add(firstItem).getName()).isEqualTo("item01");
         assertThat(tracker.delete(firstItem.getId())).isTrue();
         assertThat(tracker.delete(firstItem.getId())).isFalse();
+    }
+
+    @Test
+    public void whenFindDeletedItemThenNull() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item firstItem = new Item("item01");
+        assertThat(tracker.add(firstItem).getName()).isEqualTo("item01");
+        assertThat(tracker.delete(firstItem.getId())).isTrue();
+        assertThat(tracker.findById(firstItem.getId())).isNull();
     }
 
     @Test
