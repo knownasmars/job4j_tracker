@@ -37,9 +37,11 @@ public class StartUI {
         try (Store memTracker = new SqlTracker()) {
         List<UserAction> actions = new ArrayList<>(
                 List.of(new CreateAction(output),
+                        new CreateManyItems(output),
                         new ShowAction(output),
                         new EditAction(output),
                         new DeleteAction(output),
+                        new DeleteAllItems(output),
                         new FindByNameAction(output),
                         new FindByIdAction(output),
                         new ExitAction(output)
