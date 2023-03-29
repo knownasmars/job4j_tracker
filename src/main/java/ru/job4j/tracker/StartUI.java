@@ -48,8 +48,8 @@ public class StartUI {
                 )
         );
         new StartUI(output).init(input, memTracker, actions);
-    } catch (Exception e) {
-        e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
