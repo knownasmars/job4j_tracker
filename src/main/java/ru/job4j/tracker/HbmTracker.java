@@ -7,6 +7,7 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HbmTracker implements Store, AutoCloseable {
@@ -18,11 +19,16 @@ public class HbmTracker implements Store, AutoCloseable {
     @Override
     public Item add(Item item) {
         Session session = sf.openSession();
-        session.beginTransaction();
-        session.save(item);
-        session.createQuery("from Item");
-        session.getTransaction().commit();
-        session.close();
+        try {
+            session.beginTransaction();
+            session.save(item);
+            session.createQuery("from Item");
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        } finally {
+            close();
+        }
         return item;
     }
 
@@ -42,6 +48,8 @@ public class HbmTracker implements Store, AutoCloseable {
             return true;
         } catch (Exception e) {
             session.getTransaction().rollback();
+        } finally {
+            close();
         }
         return false;
     }
@@ -59,6 +67,8 @@ public class HbmTracker implements Store, AutoCloseable {
             return true;
         } catch (Exception e) {
             session.getTransaction().rollback();
+        } finally {
+            close();
         }
         return false;
     }
@@ -66,22 +76,52 @@ public class HbmTracker implements Store, AutoCloseable {
     @Override
     public List<Item> findAll() {
         Session session = sf.openSession();
-        return session.createQuery("from Item").list();
+        List<Item> rsl = new ArrayList<>();
+        try {
+            session.beginTransaction();
+            rsl = session.createQuery("from Item").list();
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        } finally {
+            close();
+        }
+        return rsl;
     }
 
     @Override
     public List<Item> findByName(String name) {
         Session session = sf.openSession();
-        var query = session.createQuery(
-                        "from Item where name = :name")
-                .setParameter("name", name);
-        return query.getResultList();
+        List<Item> rsl = new ArrayList<>();
+        try {
+            session.beginTransaction();
+            var query = session.createQuery(
+                            "from Item where name = :name")
+                    .setParameter("name", name);
+            rsl = query.getResultList();
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        } finally {
+            close();
+        }
+        return rsl;
     }
 
     @Override
     public Item findById(int id) {
+        var rsl = new Item();
         Session session = sf.openSession();
-        return session.get(Item.class, id);
+        try {
+            session.beginTransaction();
+            rsl = session.get(Item.class, id);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+        } finally {
+            close();
+        }
+        return rsl;
     }
 
     @Override
