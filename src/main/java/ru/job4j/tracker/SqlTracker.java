@@ -123,9 +123,7 @@ public class SqlTracker implements Store {
     private Item getResultSet(ResultSet rsl) throws SQLException {
         return new Item(
                 rsl.getInt("id"),
-                rsl.getString("name"),
-                rsl.getTimestamp("created")
-                        .toLocalDateTime());
+                rsl.getString("name"));
     }
 
     @Override
