@@ -19,3 +19,6 @@ delete from items [42104-214]
 2023-01-17 16:39:00 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DATABASECHANGELOGLOCK" not found (this database is empty); SQL statement:
 SELECT COUNT(*) FROM DATABASECHANGELOGLOCK [42104-214]
+2023-04-18 12:52:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Объект уже закрыт
+The object is already closed [90007-214]
